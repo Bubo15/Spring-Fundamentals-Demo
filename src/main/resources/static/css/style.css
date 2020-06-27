@@ -1,0 +1,24 @@
+body {
+     background-image: url("https://images.hdqwalls.com/wallpapers/rolls-royce-wraith-luminary-collection-2018-x3.jpg");
+     background-position: center center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+     background-color: #464646;
+ }
+
+.bg-text {
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+     color: white;
+     font-weight: bold;
+     border: 3px solid #f1f1f1;
+     z-index: 2;
+     width: 80%;
+     padding: 20px;
+     text-align: center;
+}
+
+.container-fluid{
+     padding: 40px;
+}

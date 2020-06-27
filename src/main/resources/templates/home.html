@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8"/>
+    <title>West Compass</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+<main class="main">
+
+    <th:block th:insert="/header.html"></th:block>
+
+    <div class="container-fluid">
+        <h1 sec:authorize="isAuthenticated()" class="text-center text-white " th:text="| Hello, ${session.username}. Welcome to |"></h1>
+        <h2 class="text-center text-white">West Compass Dealer Shop</h2>
+        <hr style="width: 50%"/>
+        <h4 class="font-italic text-center text-white ">
+            By clicking the buttons below you can check our car deals or upload a brand new.
+        </h4>
+        <br/>
+        <div class="text-center" sec:authorize="isAuthenticated()">
+            <a class="btn btn-secondary text-center mr-4" th:href="@{/offers/add}">Upload Offer</a>
+            <a class="btn btn-secondary text-center ml-4" th:href="@{/offers}">All Offers</a>
+        </div>
+        <div class="text-center" sec:authorize="isAnonymous()">
+            <a class="btn btn-secondary text-center mr-4" th:href="@{/users/register}">Register</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

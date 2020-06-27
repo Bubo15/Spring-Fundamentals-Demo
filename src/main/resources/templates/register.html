@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>West Compass</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/errMes.css"/>
+</head>
+<body>
+<main class="main">
+
+    <th:block th:insert="/header.html"></th:block>
+
+    <div class="container-fluid-reg">
+        <h2 class="text-center text-white">Register</h2>
+
+        <form class="mt-lg-1 w-15 h-50" th:action="@{/users/register}" th:method="post" th:object="${user}">
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="username">Enter Username
+
+                            <input type="text" class="form-control" placeholder="Username" name="username"
+                                   id="username" th:field="*{username}">
+
+                            <th:block th:each="error : ${#fields.errors('username')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('username')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('username')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="firstName">Enter First Name
+                            <input type="text" class="form-control" placeholder="First name" name="firstName"
+                                   id="firstName" th:field="*{firstName}">
+
+
+                            <th:block th:each="error : ${#fields.errors('firstName')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('firstName')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('firstName')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="lastName">Enter Last Name
+
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastName"
+                                   id="lastName" th:field="*{lastName}">
+
+                            <th:block th:each="error : ${#fields.errors('lastName')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('lastName')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('lastName')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="imageUrl">Enter image URL
+                            <input type="text" class="form-control" placeholder="Image url" name="imageUrl"
+                                   id="imageUrl" th:field="*{imageUrl}">
+
+                            <th:block th:each="error : ${#fields.errors('imageUrl')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('imageUrl')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('imageUrl')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="password">Enter Password
+                            <input type="text" class="form-control" placeholder="Password" name="password"
+                                   id="password" th:field="*{password}">
+
+                            <th:block th:each="error : ${#fields.errors('password')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('password')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('password')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="re-password">Enter Re-Password
+                            <input type="text" class="form-control" placeholder="Re-Password" name="rePassword"
+                                   id="re-password" th:field="*{rePassword}">
+
+                            <th:block th:each="error : ${#fields.errors('rePassword')}">
+                                <p class="errors alert alert-danger" th:text="${error}"/>
+                            </th:block>
+
+<!--                            <th:block th:if="${errors != null && errors.containsKey('rePassword')}">-->
+<!--                                <div class="mx-auto text-center" th:each="error :${errors.get('rePassword')}">-->
+<!--                                    <p class="errors alert alert-danger" th:text="${error}"/>-->
+<!--                                </div>-->
+<!--                            </th:block>-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <p th:if="${error}" class="errors-1 alert alert-danger text-center" th:text="${error}"/>
+
+            <div class="row">
+                <div class="col col-md-4"></div>
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex justify-content-center">
+                        <input type="submit" class="btn btn-secondary" value="Register"/>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</main>
+</body>
+</html>

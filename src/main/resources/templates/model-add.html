@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>West Compass</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<main class="main">
+    <th:block th:insert="/header.html"></th:block>
+
+    <div class="container-fluid">
+        <h2 class="text-center text-white">Add Model</h2>
+        <form class="mt-lg-5 w-15 h-50" th:action="@{/model/add}" th:method="post" th:object="${model}">
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="brand">Select Brand
+                                <select id="brand" name="brand" class="form-control">
+                                    <option value="Select Brand">Select Brand</option>
+                                    <option th:each="brand : ${brands}"
+                                            th:value="${brand.getName()}"
+                                            th:text="${brand.getName()}"
+                                            th:field="*{brand}">
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('brand')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="category">Select Category
+                                <select th:field="*{category}" id="category" name="category" class="form-control">
+                                    <option value="Select Category">Select Category</option>
+                                    <option th:value="CAR">CAR</option>
+                                    <option th:value="BUS">BUS</option>
+                                    <option th:value="TRUCK">TRUCK</option>
+                                    <option th:value="MOTORCYCLE">MOTORCYCLE</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('category')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="name">Enter Model Name
+                                <input type="text" class="form-control" placeholder="Model name" name="name" id="name"
+                                th:fiels="*{name}">
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('name')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="name">Enter Start year
+                                <input type="number" class="form-control" placeholder="Start year" name="startYear"
+                                       id="startYear" th:field="*{startYear}">
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('startYear')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="name">Enter End year
+                                <input type="number" class="form-control" placeholder="End year" name="endYear"
+                                       id="endYear" th:field="*{endYear}">
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('endYear')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="name">Enter image URL
+                                <input type="text" class="form-control" placeholder="Image url" name="imageUrl"
+                                       id="imageUrl" th:field="*{imageUrl}">
+                            </label>
+                        </div>
+
+                        <th:block th:each="error : ${#fields.errors('imageUrl')}">
+                            <div class="input-group mb-3 justify-content-center">
+                                <small class="text-danger" th:text="${error}"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-4"></div>
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex justify-content-center">
+                        <input type="submit" class="btn btn-secondary" value="Add Model"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

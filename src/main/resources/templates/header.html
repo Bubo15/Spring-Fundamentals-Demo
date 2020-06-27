@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<link rel="stylesheet" href="/css/header.css"/>
+
+<header th:class="${session.headerPage} + ' navbar navbar-expand-lg navbar-background'">
+    <a class="nav-link text-white active h5" th:href="@{/}">Home</a>
+
+    <div sec:authorize="isAuthenticated()">
+        <a class="nav-link text-white active h5" th:href="@{/logout}">Logout</a>
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+        <ul class="navbar-nav row">
+            <li class="nav-item col-md-5">
+                <a class="nav-link text-white active h5" th:href="@{/users/register}">Register</a>
+            </li>
+            <li class="nav-item col-md-5">
+                <a class="nav-link text-white active h5" th:href="@{/users/login}">Login</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="collapse navbar-collapse d-flex justify-content-end" sec:authorize="isAuthenticated()">
+        <ul class="navbar-nav row">
+            <a class="nav-item nav-link text-white active font-weight-bold" th:href="@{/brand/add}">Add Brand</a>
+            <a class="nav-item nav-link text-white active font-weight-bold" th:href="@{/model/add}">Add Model</a>
+            <a class="nav-item nav-link text-white active font-weight-bold" th:href="@{/offers/add}">Add Offer</a>
+            <a class="nav-item nav-link text-white active font-weight-bold" th:href="@{/offers}">All Offers</a>
+        </ul>
+    </div>
+</header>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>West Compass</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<main class="main">
+    <th:block th:insert="/header.html"></th:block>
+
+
+    <div class="container-fluid">
+        <h2 class="text-center text-white">Add Brand</h2>
+        <form class="mt-lg-5 w-15 h-50" th:action="@{/brand/add}" th:method="post" th:object="${brand}">
+            <div class="col col-md-12">
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label class="text-center text-white font-weight-bold" for="name">Enter Brand Name
+                            <input type="text" class="form-control" placeholder="Brand name" name="name" id="name"
+                            th:field="*{name}">
+                        </label>
+                    </div>
+
+
+                    <th:block th:each="error : ${#fields.errors('name')}">
+                        <div class="input-group mb-3 justify-content-center">
+                            <small class="text-danger" th:text="${error}"/>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4"></div>
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex justify-content-center">
+                        <input type="submit" class="btn btn-secondary" value="Add Brand"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

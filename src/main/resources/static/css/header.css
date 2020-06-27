@@ -1,0 +1,15 @@
+.home {
+    text-align: center;
+    background: rgb(31,38,56);
+    color: white;
+    font-size: 20px;
+    position: page;
+}
+
+.notHome {
+    text-align: center;
+    background: rgb(1,11,31);
+    color: white;
+    font-size: 20px;
+    position: page;
+}

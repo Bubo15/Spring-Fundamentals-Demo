@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>West Compass</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/errMes.css"/>
+</head>
+<body>
+<main class="main">
+
+    <th:block th:insert="/header.html"></th:block>
+
+    <div class="container-fluid">
+        <h2 class="text-center text-white">Login</h2>
+        <form class="mt-lg-5 w-15 h-50" th:action="@{/users/login}" th:method="post">
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="username">Enter Username
+                                <input th:value="${username}" type="text" class="form-control" placeholder="Username"
+                                       name="username"
+                                       id="username">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="password">Enter Password
+                                <input type="text" class="form-control" placeholder="Password" name="password" id="password">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--/*@thymesVar id="errors" type="String"*/-->
+            <p th:if="${errors}" class="errors-1 alert alert-danger" th:text="${errors}"/>
+
+            <div class="row">
+                <div class="col col-md-4"></div>
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex justify-content-center">
+                        <input type="submit" class="btn btn-secondary" value="Login"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
